@@ -1,0 +1,776 @@
+﻿body 
+{ 
+    font-family: Verdana, Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+}
+
+#game-arena
+{
+    display: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    width: 960px;
+    height: 658px;
+    position: relative;
+    color: #fff;
+    cursor: /*url('../images/cursorw.png'), url('../images/cursorw.cur'), */crosshair;
+}
+
+#intro
+{
+	position: absolute;
+    overflow: hidden;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+    background: transparent url('../images/mainbg-starfield.jpg') no-repeat scroll left bottom;
+}
+
+#game
+{
+	position: absolute;
+    overflow: hidden;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+    background: transparent url('../images/mainbg-starfielda.png') 0 0 repeat-x;
+    display: none;
+}
+
+#pov
+{
+    position: absolute;
+    top: 120px;
+    left: 37px;
+    display: none;
+    padding: 0;
+    margin: 0;
+    width: 669px;
+    height: 519px;
+    background-image: url('../images/pov.png');
+}
+
+#title-splash
+{
+    display: none;
+    height: 308px;
+    width: 670px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 205px;
+    left: 140px;
+    background: transparent url('../images/title-splash.jpg') no-repeat scroll left bottom;
+}
+
+#title
+{
+    position: absolute;
+    left: 174px;
+    top: 229px;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+}
+
+#title-logo
+{
+    margin: 0;
+    padding: 0;
+}
+
+#title-text
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 147px;
+}
+
+#small-title {
+    display: none;
+    left: 25px;
+    padding: 0;
+    position: absolute;
+    top: 8px;
+    margin: 0;
+}
+
+#small-title #title-text {
+    left: 81px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 33px;
+}
+
+#small-title #title-logo img {
+    width: 91px;
+    height: 90px;
+}
+
+#small-title #title-text img {
+    position: relative;
+    width: 208px;
+    height: 38px;
+}
+
+#title-logo img
+{
+    /*height: 0;*/
+    display: none;
+}
+
+#title-text img
+{
+    /*height: 0;*/
+    display: none;
+}
+
+#introalien
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 200px;
+    left: 850px;
+    z-index: 1001;
+}
+
+#introalien img
+{
+    width: 180px;/*162px;  60 percent of 345 */
+    height: 255px;/*238px;  60 percent of 384 */
+    float: right;
+    display: none;
+}
+
+#introalien_settle
+{
+    background: transparent url('../images/sprites/spacealien_settle.png') 0 0 no-repeat;
+    width: 182px; 
+    height: 245px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2003;
+}
+
+#introalien_solute
+{
+    background: transparent url("../images/sprites/spacealien_solute.png") 0 0 no-repeat;
+    margin: 0;
+    padding: 0;
+    width: 189px;
+    height: 245px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2002;
+}
+
+#introalien_flyin
+{
+    background: transparent url('../images/sprites/spacealien_flyin.png') 0 0 no-repeat;
+    width: 195px; 
+    height: 255px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2000;
+}
+
+#introalien_blink
+{
+    background: transparent url('../images/sprites/spacealien_blink.png') 0 0 no-repeat;
+    width: 183px;
+    height: 252px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2001;
+}
+
+#introalien_takeoff
+{
+    background: transparent url('../images/sprites/spacealien_takeoff.png') 0 0 no-repeat;
+    width: 189px;
+    height: 255px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2004;
+}
+
+#earth {
+    /*background: url("../images/sprites/spaceaceSprite.png") no-repeat scroll 0 0 transparent;*/
+    width: 116px;
+    height: 116px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 542px;/* destination 308px;*/
+    left: 0; /* destination 312px;*/
+}
+
+#earth img {
+    width: 0px;/* destination 116px;*/
+    height: 0px;/* destination 116px;*/
+}
+
+#dashboardpart-ul {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 370px;
+    height: 90px;
+    display: none;
+}
+
+#dashboardpart-ul img {
+    width: 370px;
+    height: 90px;
+}
+
+#titlebgglass {
+    top: 5px;
+    left: 0px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+/*    width: 375px;*/
+    width: 100%;
+    height: 100px;
+    display: none;
+}
+
+#titlebgglass img {
+    /*width: 375px;*/
+    width: 100%;
+    height: 100px;        
+}
+
+#scoreboard {
+    background-image: url('../images/scoreboard.png');
+    background-repeat: no-repeat;
+    width: 218px;
+    height: 118px;
+    top: 120px;
+    left: 718px;
+    position: absolute;
+    display: none;
+}
+
+#scoreboard table
+{
+    margin: 0 auto;
+    font-weight: bold;
+/*    padding: 32px 0 0;*/
+    padding: 7px 0 0;
+}
+
+#scoreboard
+{
+    vertical-align: bottom;
+}
+
+#msg, #reviewMsg
+{
+    padding: 26px 5px 5px;
+    color: yellow;/*#28b428;*/
+    margin: 0 auto;
+    text-align: center;
+}
+
+#msg p, #reviewMsg p
+{
+    font-weight: bold;
+    margin: 2px 0;
+    padding: 0 4px;
+}
+
+#msg h3
+{
+    width: 93px;
+}
+
+#msg h3, #msg h1
+{
+    margin: 2px auto;
+    padding: 2px 0;
+}
+
+#msg h1
+{
+    color: #f00;
+}
+
+#time, #score,
+#msg h1
+{
+    font-family: Courier;
+    font-weight: normal;
+}
+
+#msg.correct
+{
+    color: #28b428;
+}
+
+#msg.wrong
+{
+    color: #f00;
+}
+
+#msg.continue
+{
+    color: #ead900;
+}
+
+#scoreboard tr:first-child
+{
+    color: Teal;
+}
+
+#scoreboard tr:last-child
+{
+    color: Purple;
+}
+
+.time
+{
+    color: Red;
+    font-size: 24px;
+}
+
+.score
+{
+    color: #28b428;
+    /*line-height: 18px;*/
+    font-size: 48px;
+}
+
+#infograph {
+    background: transparent url('../images/sprites/infograph.png') no-repeat scroll 0 0;
+    width: 218px;
+    height: 370px;
+    top: 269px;
+    left: 718px;
+    position: absolute;
+    display: none;
+}
+
+#satList, #largerText  /* #infograph > div */
+{
+    padding: 20px;
+    color: #fff;
+}
+
+#satList p
+{
+    margin: 0;
+    font-size: 10px;
+}
+
+#largerText p
+{
+    margin: 0;
+    font-size: 1em;
+}
+
+/* jQuery UI overrides */
+.ui-accordion .ui-accordion-content {
+    padding: 3px;
+}
+
+.ui-widget-content,
+.ui-state-active, 
+.ui-widget-content .ui-state-active, 
+.ui-widget-header .ui-state-active,
+.ui-state-default, 
+.ui-widget-content .ui-state-default, 
+.ui-widget-header .ui-state-default
+{
+    background: transparent none;
+    color: #ffffff;
+}
+
+.ui-accordion .ui-accordion-header
+{
+    cursor: /*url('../images/cursor.png'), url('../images/cursorw.cur'), */pointer;
+}
+
+#questionboard {
+    background-image: url('../images/questionboard.png');
+    width: 268px;
+    height: 268px;
+    top: 232px;
+    left: 236px;
+    color: yellow;
+    position: absolute;
+    display: none;
+}
+
+#questionboard p {
+    background: url("../images/questionboard.png") repeat scroll -22px -22px transparent;
+    width: 188px;
+    height: 182px;
+    color: #fff;
+    margin: 20px auto auto;
+    padding: 20px;
+    border: 1px solid #fff;
+}
+
+#begin-message {
+    background-image: url('../images/begin-message.png');
+    color: #c0c0c0;
+    font-size: 37px;
+    font-weight: bold;
+    position: absolute;
+    width: 648px;
+    height: 102px;
+    top: 315px;
+    left: 48px;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+#begin-message p {
+    margin: 10px 0 8px 27px;
+    zoom: 1;
+-ms-filter: "progid:DXImageTransform.Microsoft.Blur(pixelradius=1) progid:DXImageTransform.Microsoft.DropShadow(OffX=1, OffY=-1, Color=#000000)";
+    filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=1)
+            progid:DXImageTransform.Microsoft.DropShadow(OffX=1, OffY=-1, Color=#000000);
+}
+
+#countdownBegin {
+    font-size: 62px;
+}
+
+/* alien badges */
+.aliens {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 0;
+    padding: 7px;
+    display: none;
+}
+
+.cadetalien {
+    width: 98px;
+    height: 89px;
+    margin: 0px;
+    padding: 0;
+    position: relative;
+    float: left;
+}
+
+.alien_explode {
+    width: 98px;
+    height: 88px;
+    background: transparent url('../images/sprites/spacealien_explode_.png') 0 0 no-repeat;
+}
+
+/* alien characters */    
+.girl_alien {
+    background: transparent url("../images/sprites/spacealien_explode_.png") -198px -132px no-repeat;
+    margin: 0 auto;
+}
+.chubby_alien {
+    background: transparent url("../images/sprites/spacealien_explode_.png") -100px -132px no-repeat;
+    margin: 0 auto;
+}
+.harry_alien {
+    background: transparent url("../images/sprites/spacealien_explode_.png") -296px -132px no-repeat;
+    margin: 0 auto;
+}
+.goofy_alien {
+    background: transparent url("../images/sprites/spacealien_explode_.png") -2px -132px no-repeat;
+    margin: 0 auto;
+}
+.avgjoe_alien {
+    background: transparent url("../images/sprites/spacealien_explode_.png") -394px -132px no-repeat;
+    margin: 0 auto;
+}
+
+.cadetalien span {
+	color: red;
+	font-size: 40px; 
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	right: 32px;
+	display: none;
+}
+
+#coordinates
+{
+    position: absolute;
+    top: 185px;
+    left: 194px; /* +7 from original psd images */
+    background-image: url('../images/coordinates.png');
+    padding: 0;
+    margin: 0;
+    width: 356px;
+    height: 362px;
+    display: none;
+}
+
+#cmapping
+{
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    position: absolute;
+    top: 315px;
+    left: 0px;
+    display: none;
+}
+#cmapping ul { width: 80px; }
+#cmapping ul li { margin: 1em 0; padding: 0.5em 0; } * html #cmapping ul li { height: 1%; }
+#cmapping ul li span.ui-icon { float: left; }
+#cmapping ul li span.count { font-weight: bold; }
+#cmapping.ui-widget-content { background: #fff none; border: none; }
+
+.coord0
+{
+    position: absolute;
+    top: 45px;
+    left: 265px;
+}
+
+.coord1
+{
+    position: absolute;
+    top: 81px;
+    left: 403px;
+}
+
+.coord2
+{
+    position: absolute;
+    top: 192px;
+    left: 516px;
+}
+
+.coord3
+{
+    position: absolute;
+    top: 316px;
+    left: 502px;
+}
+
+.coord4
+{
+    position: absolute;
+    top: 427px;
+    left: 418px;
+}
+
+.coord5
+{
+    position: absolute;
+    top: 462px;
+    left: 256px;
+}
+
+.coord6
+{
+    position: absolute;
+    top: 427px;
+    left: 109px;
+}
+
+.coord7
+{
+    position: absolute;
+    top: 323px;
+    left: 1px;
+}
+
+.coord8
+{
+    position: absolute;
+    top: 191px;
+    left: 14px;
+}
+
+.coord9
+{
+    position: absolute;
+    top: 83px;
+    left: 90px;
+}
+
+div.sats
+{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 222px;
+    height: 222px;
+    display: none;
+    background: transparent url('../images/sprites/satellites.png') no-repeat left top;
+}
+
+img.sats {
+    display: none;
+}
+
+.satList
+{
+    display: none;
+}
+
+.activeQuiz
+{
+    display: none;
+}
+
+.activeSats div, .activeSats img
+{
+    display: none;
+}
+
+div.aehf
+{
+    background-position: 0 0;
+}
+
+div.dmsp
+{
+    background-position: 0 -222px;
+}
+
+div.dscs
+{
+    background-position: 0 -444px;
+}
+
+div.dsp
+{
+    background-position: 0 -666px;
+}
+
+div.milstar
+{
+    background-position: 0 -888px;
+}
+
+div.muos
+{
+    background-position: 0 -1110px;
+}
+
+div.navstar
+{
+    background-position: 0 -1332px;
+}
+
+div.noaa
+{
+    background-position: 0 -1554px;
+}
+
+div.sbirs
+{
+    background-position: 0 -1776px;
+}
+
+div.tsat
+{
+    background-position: 0 -1998px;
+}
+
+div.ufo
+{
+    background-position: 0 -2220px;
+}
+
+div.wgs
+{
+    background-position: 0 -2442px;
+}
+
+/* jquery ui overrides */
+.ui-state-disabled, 
+.ui-widget-content .ui-state-disabled, 
+.ui-widget-header .ui-state-disabled
+{
+    opacity: 1;
+    filter: Alpha(Opacity=100); opacity: 1
+}
+
+#off
+{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 1px;
+    display: none;
+    height: 1px;
+}
+
+#timer-bar {
+    width: 100%;
+    height: 30px;
+    background: red;
+}
+
+#timer-container {
+    z-index: 5000;
+}
+
+#acheivements {
+    background: transparent url('../images/modal-bg.png') repeat;
+    z-index: 5000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#badges {
+    position: absolute;
+    right: 80px;
+    top: 80px;
+}
+
+#badges li {
+    list-style: none;
+} 
+
+#game_over {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+}

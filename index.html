@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<!--<meta http-equiv="x-ua-compatible" content="IE=8">-->
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>SpaceAce</title>
+<link rel="stylesheet" href="css/ui/smoothness/jquery-ui-1.10.1.custom.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.1.custom.js"></script>
+<script src="js/lib/draggableThing.js" type="text/javascript"></script>
+<script src="js/lib/timers.js" type="text/javascript"></script>
+<script src="js/lib/spacetimer.js" type="text/javascript"></script>
+<script src="js/model/spaceace.js" type="text/javascript"></script>
+<script src="js/controller/spaceace.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.spritely.js"></script>
+<script type="text/javascript" src="js/jquery.imgpreload.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        //init();
+        $('#off img').imgpreload(function() {
+        	init();
+        });
+        //initDraggable();
+        
+    });
+    
+</script>
+</head>
+<body>
+<div id="game-arena" class="splash-screen">
+	<div id="loading-notify" style="color:red;position:absolute;top:0;left:0;"><h1>Loading...</h1></div>
+    <div id="review"> </div>
+    <div id="game"> </div><!--end of game div-->
+    <div id="intro"> </div>
+    <div id="acheivements">
+        <div id="game_over">
+            <h1>Game Over</h1>
+            <p id="game-over"> </p>
+            <h1>Score</h1>
+            <p id="match-score"> </p>
+            <p id="acheivement"> </p>
+        </div>
+        <div id="badges">
+            <ul>
+                <li>
+                    <img src="images/cadetbadge-lg-lo.png" alt="" style="display:none;" />
+                </li>
+                <li>
+                    <img src="images/cadetbadge-lg.png" alt="" />
+                </li>
+                <li>
+                    <img src="images/seniorbadge-lg-lo.png" alt="" />
+                </li>
+                <li>
+                    <img src="images/seniorbadge-lg.png" alt="" style="display:none;" />
+                </li>
+                <li>
+                    <img src="images/masterbadge-lg-lo.png" alt="" />
+                </li>
+                <li>
+                    <img src="images/masterbadge-lg.png" alt="" style="display:none;" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="title">
+        <div id="title-logo"><img src="images/spacelogo.png" alt="" /></div>
+        <div id="title-text"><img src="images/title-text.png" alt="" /></div>
+    </div>
+
+    <div id="title-splash"> </div>
+    <div id="introalien"><img src="images/spacealienintro.png" alt="" />
+        <div id="introalien_solute"> </div>
+        <div id="introalien_flyin"> </div>
+        <div id="introalien_blink"> </div>
+        <div id="introalien_settle"> </div>
+        <div id="introalien_takeoff"> </div>
+    </div>
+    
+    <div id="earth"><img src="images/earth.png" alt="" />
+    </div>
+    
+    <div id="satImages"> </div>
+    <div id="coordinates"> </div>
+    
+    <div id="begin-message"><p>MISSION WILL BEGIN IN: <span id="countdownBegin">5</span></p></div>
+
+    <div id="infograph">
+        <div id="satList">
+            <!--accordion here-->
+        </div>
+        <div id="largerText"><p> </p></div>
+    </div>
+    
+    <div id="pov"> </div>
+    <div id="dashboardpart-ul"><img src="images/dashboardpart.png" alt="" /></div>
+    <div id="titlebgglass"><img src="images/top_titlebar.png" alt="" /></div>
+<!--    <div id="titlebgglass"><img src="images/titlebgglass.png" alt="" /></div>-->
+    
+    <div id="small-title"> </div>
+
+    <div id="scoreboard">
+        <table>
+            <tr>
+                <td width="35px"><img src="images/alien_icon.png" alt="" /></td><td align="left"><span id="score" class="score">x0</span></td>
+            </tr>
+            <tr>
+                <td colspan='2' align='left'>
+                    <div style='width:178px;margin:0 auto;border: 1px solid white'>
+                        <div id="timer-container">
+                            <div id="timer-bar"> </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!--extra messages-->
+        <div id="msg" style="display: none;"><p>Continue?</p><h1>5</h1><h3>Yes</h3></div>
+        <div id="reviewMsg" style="display: none;"><p>Review the answers to the satellites below then click Done.</p></div>
+    </div>
+    
+    <div id="questionboard"><p> </p></div>
+    
+    <!--alien-->
+    <div class="aliens">
+        <div id="girl_alien" class="cadetalien girl_alien"><span class="wrongAnsInd">X</span></div>
+        <div id="chubby_alien" class="cadetalien chubby_alien"><span class="wrongAnsInd">X</span></div>
+        <div id="harry_alien" class="cadetalien harry_alien"><span class="wrongAnsInd">X</span></div>
+        <div id="goofy_alien" class="cadetalien goofy_alien"><span class="wrongAnsInd">X</span></div>
+        <div id="avgjoe_alien" class="cadetalien avgjoe_alien"><span class="wrongAnsInd">X</span></div>
+    </div>
+    
+    <div id="cmapping" class="ui-widget ui-widget-content">
+        <p>DRAG</p>
+        <ul class="ui-helper-reset">
+            <li id="event-start" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play">"start" invoked </span><span class="count">0</span>x</li>
+            <li id="event-drag" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4">"drag" invoked </span><span class="count">0</span>x</li>
+            <li id="event-stop" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-stop">"stop" invoked </span><span class="count">0</span>x</li>
+        </ul>
+    </div>
+    
+    <div id="off">
+    	<!-- Sprite Animations -->
+        <img src="images/sprites/spacealien_settle.png" alt="" />
+        <img src="images/sprites/spacealien_solute.png" alt="" />
+        <img src="images/sprites/spacealien_flyin.png" alt="" />
+        <img src="images/sprites/spacealien_blink.png" alt="" />
+        <img src="images/sprites/spacealien_takeoff.png" alt="" />
+        <img src="images/sprites/spacealien_explode.png" alt="" />
+        <img src="images/sprites/spacealien_explode_.png" alt="" />
+        <!-- Sprite Sheets -->
+        <img src="images/sprites/satellites.png" alt="" />
+        <img src="images/sprites/infograph.png" alt="" />
+        <!-- individual satellites -->
+        <img src="images/AEHF.png" alt="aehf" />
+        <img src="images/WGS.png" alt="wgs" />
+        <img src="images/DMSP.png" alt="dmsp" />
+        <img src="images/DSCS.png" alt="dscs" />
+        <img src="images/DSP.png" alt="dsp" />
+        <img src="images/Milstar.png" alt="milstar" />
+        <img src="images/MUOS.png" alt="muos" />
+        <img src="images/Navstar.png" alt="navstar" />
+        <img src="images/NOAA.png" alt="noaa" />
+        <img src="images/SBIRS.png" alt="sbirs" />
+        <img src="images/TSAT.png" alt="tsat" />
+        <img src="images/UFO.png" alt="ufo" />
+        <!-- dashboard and background parts -->
+        <img src="images/infographi.png" alt="" />
+        <img src="images/mainbg-starfielda.png" alt="" />
+        <img src="images/mainbg-starfield.png" alt="" />
+        <img src="images/title-splash.jpg" alt="" />
+        <img src="images/scoreboard.png" alt="" />
+        <img src="images/questionboard.png" alt="" />
+        <img src="images/begin-message.png" alt="" />
+        <img src="images/coordinates.png" alt="" />
+        <img src="images/modal-bg.png" alt="" />
+        <img src="images/pov.png" alt="" />
+        <img src="css/ui/smoothness/images/ui-icons_888888_256x240.png" alt="" />
+        <!-- Acheivements badges -->
+        <img src="images/cadetbadge-lg-lo.png" alt="" />
+        <img src="images/cadetbadge-lg.png" alt="" />
+        <img src="images/seniorbadge-lg-lo.png" alt="" />
+        <img src="images/seniorbadge-lg.png" alt="" />
+        <img src="images/masterbadge-lg-lo.png" alt="" />
+        <img src="images/masterbadge-lg.png" alt="" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    //window.resizeTo(1024, 800);
+</script>
+</body>
+</html>

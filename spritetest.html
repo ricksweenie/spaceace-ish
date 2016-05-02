@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta charset="UTF-8">
+    <title>Sprite Test</title>
+<link rel="stylesheet" href="css/ui/smoothness/jquery-ui-1.10.1.custom.css" />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+#game-arena-test
+{
+	display: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    width: 960px;
+    height: 658px;
+    position: relative;
+    cursor: /*url('../images/cursorw.png'), url('../images/cursorw.cur'), */crosshair;
+    /*background: transparent url('images/mainbg-starfield.jpg') left bottom;*/
+}
+
+.starstill
+{
+    background: transparent url('images/mainbg-starfield.jpg') 0 0 repeat-x;
+}
+
+.starstreak
+{
+    background: transparent url('images/mainbg-starfielda.png') 0 0 repeat-x;
+}
+
+#introalien_settle
+{
+    width: 182px;/*167px;*/ 
+    height: 245px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 332px;
+    left: 100px;
+    display: block;
+    z-index: 2003;
+}
+
+#introalien_solute
+{
+    background: transparent url("images/sprites/spacealien_solute.png") 0 0 no-repeat;
+    margin: 0;
+    padding: 0;
+    width: 189px;/*181px;*/
+    height: 245px;
+    position: absolute;
+    top: 332px;
+    left: 300px;
+    display: block;
+    z-index: 2002;
+}
+
+#introalien_flyin
+{
+    background: transparent url('images/sprites/spacealien_flyin.png') 0 0 no-repeat;
+    width: 195px; 
+    height: 255px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 332px;
+    left: 500px;
+    display: block;
+    z-index: 2000;
+}
+
+#introalien_blink
+{
+    background: transparent url('images/sprites/spacealien_blink.png') 0 0 no-repeat;
+    width: 183px;/*168px;*/ 
+    height: 252px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 332px;
+    left: 700px;
+    display: block;
+    z-index: 2001;
+}
+
+#introalien_takeoff
+{
+    background: transparent url('images/sprites/spacealien_takeoff.png') 0 0 no-repeat;
+    width: 189px;/*168px;*/ 
+    height: 252px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50px;
+    left: 700px;
+    display: block;
+    z-index: 2001;
+}
+
+/* alien badges */
+.aliens {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    margin: 0;
+    padding: 7px;
+    display: block;
+}
+
+.cadetalien {
+    width: 98px;
+    height: 89px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background-color: #008000;
+}
+
+.alien_explode {
+    width: 98px;
+    height: 88px;
+    background: transparent url('images/sprites/spacealien_explode_.png') 0 0 no-repeat;
+}
+
+.girl_alien {
+    background: transparent url("images/sprites/spacealien_explode_.png") -198px -132px no-repeat;
+    margin: 0 auto;
+ }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.1.custom.js"></script>
+<script src="js/lib/draggableThing.js" type="text/javascript"></script>
+<script src="js/lib/timers.js" type="text/javascript"></script>
+<script src="js/lib/spacetimer.js" type="text/javascript"></script>
+<script src="js/model/spaceace.js" type="text/javascript"></script>
+<script src="js/controller/spaceace.js" type="text/jav  ascript"></script>
+<script type="text/javascript" src="js/jquery.spritely.js"></script>
+</head>
+<body>
+<div id="game-arena-test" class='starstreak'>
+    <div id="introalien_solute"></div>
+    <div id="introalien_flyin"></div>
+    <div id="introalien_blink"></div>
+    <div id="introalien_settle"></div>
+    <div id="introalien_takeoff"></div>
+    <div class="aliens">
+        <div id="girl_alien" class="cadetalien girl_alien"></div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('#game-arena-test').show();
+        $('#introalien_solute')
+        .delay(1000)
+        .sprite({ fps: 12, no_of_frames: 8/*, play_frames: 8 */});
+
+        $('#introalien_flyin')
+        .delay(1000)
+        .sprite({ fps: 9, no_of_frames: 6/*, play_frames: 3*/ });
+
+        $('#introalien_blink')
+        .delay(1000)
+        .sprite({ fps: 12, no_of_frames: 21 });
+
+        $('#introalien_settle')
+        .delay(1000)
+        .sprite({ fps: 12, no_of_frames: 6/*, play_frames: 5 */});
+            
+        $('#introalien_takeoff')
+        .delay(1000)
+        .sprite({ fps: 12, no_of_frames: 12/*, play_frames: 5 */});
+        
+        $('#girl_alien').delay(1000).switchClass('girl_alien', 'alien_explode', 0, 'auto', function() {
+        	var that = $(this);
+        	setTimeout(function() {
+	        	that.css('background-position', '0 0')
+			        .sprite({ 
+						fps: 12, 
+						no_of_frames: 3,
+						/*play_frames: 5*/
+						on_last_frame: function(obj) {
+							//obj.spStop();
+							//obj.delay(1000);
+						}
+		        	});
+        	}, 200);
+        });
+            
+        //$('#game-arena-test').delay(1000).switchClass('starstill', 'starstreak');
+        
+        $('#game-arena-test')
+        .delay(2000)
+        .pan({
+			fps: 30,
+			speed: 1,
+			direction: 'left'
+        });
+    });
+
+</script>
+</body>
+</html>
