@@ -1,7 +1,7 @@
 # spaceace-ish
 This is an interactive satellite training activity to study satellites.
 
-You can see a live demo on http://chickenlipnerd.com/spaceace
+You can see a live demo on http://chickenlipnerd.com/spaceace/index.html
 
 The game is in cheat mode so you see the answer in the questions. i.e. "(cheat: ...)"
 
